@@ -2,6 +2,8 @@ FROM node:10-stretch
 MAINTAINER Huiren Woo <giantcrabby@gmail.com>
 LABEL maintainer="Huiren Woo <giantcrabby@gmail.com>"
 
+ENV APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=DontWarn
+
 RUN apt-get update \
     && apt-get install apt-transport-https
 
