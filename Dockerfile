@@ -7,7 +7,8 @@ RUN apt-get update \
 
 RUN wget 'https://cli.run.pivotal.io/stable?release=debian64&source=github' -O cf_cli.deb \
     && dpkg -i ./cf_cli.deb \
-    && apt-get install -f
+    && apt-get install -f \
+    && cf --version
 
 RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
     && cf install-plugin blue-green-deploy -r CF-Community -f
