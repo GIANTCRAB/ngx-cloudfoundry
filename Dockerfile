@@ -13,7 +13,7 @@ RUN wget 'https://cli.run.pivotal.io/stable?release=debian64&source=github' -O c
 RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
     && cf install-plugin blue-green-deploy -r CF-Community -f
 
-RUN apt-get install nginx tee -f
+RUN apt-get install nginx -f
 
 RUN printf "server { \n\
                 location / { \n\
