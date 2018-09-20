@@ -15,13 +15,11 @@ RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
 
 RUN apt-get install nginx tee
 
-RUN tee -a /etc/nginx/conf.d/ngx-push-state.conf << END
-server {
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-}
-END
+RUN printf "server { \n\
+                location / { \n\
+                    try_files $uri $uri/ /index.html; \n\
+                } \n\
+            }\n" | sudo tee /etc/nginx/conf.d/ngx-push-state.conf
 
 RUN npm install -g @angular/cli
 
