@@ -19,7 +19,7 @@ RUN printf "server { \n\
                 location / { \n\
                     try_files $uri $uri/ /index.html; \n\
                 } \n\
-            }\n" | sudo tee /etc/nginx/conf.d/ngx-push-state.conf
+            }\n" | tee /etc/nginx/conf.d/ngx-push-state.conf
 
 RUN npm install -g @angular/cli
 
