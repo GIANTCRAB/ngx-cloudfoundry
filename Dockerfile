@@ -3,7 +3,7 @@ MAINTAINER Huiren Woo <giantcrabby@gmail.com>
 LABEL maintainer="Huiren Woo <giantcrabby@gmail.com>"
 
 RUN apt-get update \
-    && apt-get install apt-transport-https -f
+    && apt-get install --force-yes apt-transport-https
 
 RUN wget 'https://cli.run.pivotal.io/stable?release=debian64&source=github' -O cf_cli.deb \
     && dpkg -i ./cf_cli.deb \
@@ -13,7 +13,7 @@ RUN wget 'https://cli.run.pivotal.io/stable?release=debian64&source=github' -O c
 RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
     && cf install-plugin blue-green-deploy -r CF-Community -f
 
-RUN apt-get install nginx -f
+RUN apt-get install --force-yes nginx
 
 RUN printf "server { \n\
                 location / { \n\
