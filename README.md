@@ -12,7 +12,7 @@ Use this for your build/test environment.
 You could run the following bash command to easily deploy to Cloud Foundry.
 
 ```
-cf login -a $CF_API_ENDPOINT -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORGANIZATION -s $CF_SPACE && cf blue-green-deploy $CF_APP
+cf login -a $CF_API_ENDPOINT -u $CF_USERNAME -p $CF_PASSWORD -o $CF_ORGANIZATION -s $CF_SPACE && cf check-manifest $CF_APP && cf blue-green-deploy $CF_APP
 ```
 
 Environment variables required:

@@ -13,6 +13,8 @@ RUN wget 'https://cli.run.pivotal.io/stable?release=debian64&source=github' -O c
 RUN cf add-plugin-repo CF-Community https://plugins.cloudfoundry.org \
     && cf install-plugin blue-green-deploy -r CF-Community -f
 
+RUN cf install-plugin https://github.com/odlp/antifreeze/releases/download/v0.4.0/antifreeze-linux
+
 RUN apt-get --yes --force-yes install nginx
 
 RUN printf "server { \n\
